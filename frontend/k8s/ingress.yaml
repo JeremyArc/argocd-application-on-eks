@@ -6,15 +6,16 @@ metadata:
     # Tell this Ingress resource to use kubernetes.io/ingress.class: nginx that we installed in preparation session
     kubernetes.io/ingress.class: nginx
     #
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
   name: frontend-app-argocd
   namespace: dev-frontend
+
 spec:
   rules:
   - host: dev.frontend.jessadademo.com
     http:
       paths:
-      - path: /frontend
+      - path: /frontend(/|$)(.*)
         # Use prefix to validate condition matching
         pathType: Prefix
         backend:
