@@ -14,7 +14,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: dev-frontend
 
-  # CreateNamespace = true => when argocd try to deploy application if there are not defined namespace, 
+  # CreateNamespace = true => when argocd try to deploy application if there are not defined namespace,
   # argocd will automatically create it.
   syncPolicy:
     syncOptions:
