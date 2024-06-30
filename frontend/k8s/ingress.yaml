@@ -14,7 +14,7 @@ spec:
   - host: dev.frontend.jessadademo.com
     http:
       paths:
-      - path: /frontend(/|$)(.*)
+      - path: /frontend
         # Use prefix to validate condition matching
         pathType: Prefix
         backend:
