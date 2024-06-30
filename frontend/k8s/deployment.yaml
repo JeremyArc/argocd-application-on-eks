@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app-argocd
+  namespace: dev-frontend
+  labels:
+    app: frontend-app-argocd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-app-argocd
+  template:
+    metadata:
+      labels:
+        app: frontend-app-argocd
+    spec:
+      containers:
+      - name: frontend-app-argocd
+        image: bitnami/nginx:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: web-port
+          protocol: TCP
+        # Health check using GET method and expected code 200
+        # livenessProbe check every time, if fail Kube will restart container immediately and then check readinessProbe again.
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+        # readinessProbe will be checked by Kube once on first start.
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP

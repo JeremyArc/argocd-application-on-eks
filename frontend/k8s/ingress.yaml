@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  # annotation for indicate that this is a customize configuration.
+  annotations:
+    # Tell this Ingress resource to use kubernetes.io/ingress.class: nginx that we installed in preparation session
+    kubernetes.io/ingress.class: nginx
+    #
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: frontend-app-argocd
+  namespace: dev-frontend
+spec:
+  rules:
+  - host: dev.frontend.jessadademo.com
+    http:
+      paths:
+      - path: /frontend(/|$)(.*)
+        # Use prefix to validate condition matching
+        pathType: Prefix
+        backend:
+          service:
+            #  This service specify to point to service that named "frontend-app-argocd"
+            name: frontend-app-argocd
+            port:
+              number: 8080
