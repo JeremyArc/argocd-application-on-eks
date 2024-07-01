@@ -1,0 +1,8 @@
+argo:
+  namespace: argocd
+
+source:
+  path: frontend/k8s
+
+destination:
+  namespace: dev-frontend

@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.argo.namespace }}
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/JeremyArc/argocd-application-on-eks.git
+    targetRevision: HEAD
+    path: {{ .Values.source.path }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.destination.namespace }}
+
+  # CreateNamespace = true => when argocd try to deploy application if there are not defined namespace,
+  # argocd will automatically create it.
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true

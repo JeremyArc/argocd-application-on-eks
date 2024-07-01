@@ -31,12 +31,12 @@ spec:
         # livenessProbe check every time, if fail Kube will restart container immediately and then check readinessProbe again.
         livenessProbe:
           httpGet:
-            path: /
+            path: /frontend
             port: 8080
             scheme: HTTP
         # readinessProbe will be checked by Kube once on first start.
         readinessProbe:
           httpGet:
-            path: /
+            path: /frontend
             port: 8080
             scheme: HTTP
