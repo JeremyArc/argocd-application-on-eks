@@ -4,20 +4,24 @@ metadata:
   name: frontend-app-argocd
   namespace: dev-frontend
   labels:
+    # service can select this on this label named "frontend-app-argocd"
     app: frontend-app-argocd
 spec:
   replicas: 1
   selector:
     matchLabels:
+      # deployment must know that which pod to be managed
       app: frontend-app-argocd
   template:
     metadata:
       labels:
+        #  label pod to match the deployment selector
         app: frontend-app-argocd
     spec:
       containers:
       - name: frontend-app-argocd
-        image: bitnami/nginx:1.27.0
+        image: bitnami/nginx:latest
+        # Always pull the latest image tagged "latest"
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

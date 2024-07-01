@@ -9,4 +9,5 @@ spec:
   ports:
   - port: 8080
   selector:
+    # select deployment that labelled as "frontend-app-argocd"
     app: frontend-app-argocd
