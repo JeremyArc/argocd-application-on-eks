@@ -13,7 +13,7 @@ spec:
   - host: dev.backend.jessadademo.com
     http:
       paths:
-      - path: /test
+      - path: /backend
         pathType: Prefix
         backend:
           service:
