@@ -14,7 +14,7 @@ spec:
   - host: dev.frontend.jessadademo.com
     http:
       paths:
-      - path: /test
+      - path: /frontend
         pathType: Prefix
         backend:
           # which service that ingress controller will forward traffic
