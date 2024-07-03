@@ -100,7 +100,7 @@ Remark: If the terminal still in process on port forwarding, you can press `Ctrl
 # frontend app
 helm install argo-for-frontend-application ./argocd/k8s/helm -f ./argocd/k8s/helm-values/values-dev-frontend-argocd.yaml
 
-# backtend app
+# backend app
 helm install argo-for-backend-application ./argocd/k8s/helm -f ./argocd/k8s/helm-values/values-dev-backend-argocd.yaml
 ```
 
