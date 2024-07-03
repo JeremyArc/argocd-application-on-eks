@@ -78,7 +78,7 @@ By default, the Argo CD API server is not exposed with an external IP. To access
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
-## Step 6: Forward ArgoCD port publicly
+## Step 6: Forward ArgoCD port
 
 Kubectl port-forwarding can also be used to connect to the API server without exposing the service.
 
