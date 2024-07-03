@@ -95,7 +95,7 @@ Remark: If the terminal still in process on port forwarding, you can press `Ctrl
 
 - user: `admin`
 - password: use this command to get default admin's password `argocd admin initial-password -n argocd`
-- Remark: You should change password and delete this credential after the fist login.
+- Remark: You should change password and delete this credential after the first login.
 
 ## Step 8: Deploy ArgoCD applications for both frontend and backend using helm
 
