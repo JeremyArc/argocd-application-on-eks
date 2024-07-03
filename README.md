@@ -116,5 +116,5 @@ Edit one of frontend or backend manifest files then commit change to main branch
 If you need to remove all the resource, use this command
 
 ```bash
-eksctl delete cluster --name dummy-cluster --region ap-southeast-1
+eksctl delete cluster --name argocd-cluster --region ap-southeast-1
 ```
