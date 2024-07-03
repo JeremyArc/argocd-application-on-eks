@@ -6,11 +6,7 @@ This repository provides a setup for deploying applications on Amazon EKS using 
 
 - Prerequisites
 - Architecture
-- Installation
-- Usage
-- Configuration
-- Contributing
-- License
+- Implementation
 
 # Prerequisites
 
