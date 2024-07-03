@@ -18,6 +18,7 @@ Before you begin, ensure you have the following installed:
 - AWS credential set on your local machine at`~/.aws/credential`
 - eksctl
 - ArgoCD CLI
+- A domain name (recommend AWS Route53)
 
 Additionally, you need an AWS account with the necessary permissions to create and manage EKS clusters and other associated resources.
 
@@ -48,7 +49,7 @@ eksctl create cluster \
 
 Change the configuration by your own setup.
 
-## Step 2: Get the created cluster's credential (specific which cluster to work with)
+## Step 2: Get the created cluster's credential (specifiy which cluster to work with)
 
 ```bash
 eksctl utils write-kubeconfig --cluster argocd-cluster --region ap-southeast-1
@@ -103,6 +104,8 @@ helm install argo-for-frontend-application ./argocd/k8s/helm -f ./argocd/k8s/hel
 helm install argo-for-backend-application ./argocd/k8s/helm -f ./argocd/k8s/helm-values/values-dev-backend-argocd.yaml
 ```
 
-## Step 9: Test ArgoCD application functionality
+## Step 9: Attach ingess load balancer DNS to your A alias record in Route53 for each `frontend` and `backend` domain that defined in manifest file.
+
+## Step 10: Test ArgoCD application functionality
 
 Edit one of frontend or backend manifest files then commit change to main branch and wait around 3 minute then ArgoCD will apply the new changes.
