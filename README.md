@@ -7,6 +7,7 @@ This repository provides a setup for deploying applications on Amazon EKS using 
 - Prerequisites
 - Architecture
 - Implementation
+- Clear resources
 
 # Prerequisites
 
@@ -109,3 +110,11 @@ helm install argo-for-backend-application ./argocd/k8s/helm -f ./argocd/k8s/helm
 ## Step 10: Test ArgoCD application functionality
 
 Edit one of frontend or backend manifest files then commit change to main branch and wait around 3 minute then ArgoCD will apply the new changes.
+
+# Clear resources
+
+If you need to remove all the resource, use this command
+
+```bash
+eksctl delete cluster --name dummy-cluster --region ap-southeast-1
+```
