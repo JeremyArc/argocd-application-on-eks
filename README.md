@@ -16,7 +16,7 @@ Before you begin, ensure you have the following installed:
 - kubectl
 - Helm
 - AWS CLI
-- AWS credential set on your local machine at`~/.aws/credential`
+- AWS credential set on your local machine at `~/.aws/credential`
 - eksctl
 - ArgoCD CLI
 - A domain name (recommend AWS Route53)
@@ -73,7 +73,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 ## Step 5: Change the argocd-server service type to LoadBalancer
 
-By default, the Argo CD API server is not exposed with an external IP. To access the API server, choose one of the following techniques to expose the Argo CD API server:
+By default, the Argo CD API server is not exposed with an external IP.
 
 ```bash
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
