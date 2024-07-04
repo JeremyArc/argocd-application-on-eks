@@ -78,10 +78,7 @@ By default, the Argo CD API server is not exposed with an external IP.
 ```bash
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```
-
-## Step 6: Forward ArgoCD port
-
-Kubectl port-forwarding can also be used to connect to the API server without exposing the service.
+Or you can forward port and access it via localhost:8080 
 
 ```bash
 kubectl port-forward svc/argocd-server -n argocd 8080:443
@@ -89,13 +86,13 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 Remark: If the terminal still in process on port forwarding, you can press `Ctrl` + `c`
 
-## Step 7: Login to ArgoCD UI using load balancer's DNS
+## Step 6: Login to ArgoCD UI using load balancer's DNS
 
 - user: `admin`
 - password: use this command to get default admin's password `argocd admin initial-password -n argocd`
 - Remark: You should change password and delete this credential after the first login.
 
-## Step 8: Deploy ArgoCD applications for both frontend and backend using helm
+## Step 7: Deploy ArgoCD applications for both frontend and backend using helm
 
 ```bash
 # frontend app
@@ -105,9 +102,9 @@ helm install argo-for-frontend-application ./argocd/k8s/helm -f ./argocd/k8s/hel
 helm install argo-for-backend-application ./argocd/k8s/helm -f ./argocd/k8s/helm-values/values-dev-backend-argocd.yaml
 ```
 
-## Step 9: Attach ingess load balancer DNS to your A alias record in Route53 for each `frontend` and `backend` domain that defined in manifest file.
+## Step 8: Attach ingess load balancer DNS to your A alias record in Route53 for each `frontend` and `backend` domain that defined in manifest file.
 
-## Step 10: Test ArgoCD application functionality
+## Step 9: Test ArgoCD application functionality
 
 Edit one of frontend or backend manifest files then commit change to main branch and wait around 3 minute then ArgoCD will apply the new changes.
 
