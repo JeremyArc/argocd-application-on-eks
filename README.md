@@ -84,8 +84,6 @@ Or you can forward port and access it via localhost:8080
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
-Remark: If the terminal still in process on port forwarding, you can press `Ctrl` + `c`
-
 ## Step 6: Login to ArgoCD UI using load balancer's DNS
 
 - user: `admin`
