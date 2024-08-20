@@ -63,6 +63,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 helm install ingress-nginx ingress-nginx/ingress-nginx --namespace kube-system
 ```
+### Ref: https://helm.nginx.com/
 
 ## Step 4: Install ArgoCD in EKS cluster
 
